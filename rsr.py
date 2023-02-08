@@ -16,10 +16,11 @@ try:
 except:
     print("Unable to connect")
 
-sql = 'Select * From student Where stuid=4'
+sql = 'Select * From student Where stuid=%s'
 myc = conn.cursor()
+disp_value = (11,)
 try:
-    myc.execute(sql)
+    myc.execute(sql, disp_value)
     row = myc.fetchone()
     print(row)
     print("Total Rows: ", myc.rowcount)
